@@ -1,13 +1,13 @@
 # PeerGoals
 
-PeerGoals is a full stack web application I built for the first ever Larajam Hackathon. It is built using the TALL 🦒 stack (a.k.a TailwindCSS, AlpineJS, Laravel, Livewire)
+PeerGoals is a full stack web application I built for the first ever [LaraJam](https://larajam.dev/) Hackathon. It is built using the TALL 🦒 stack (a.k.a TailwindCSS, AlpineJS, Laravel, Livewire)
 
 ## Installation
 
-#### Clone the repo [repo](repo-link)
+#### Clone the repo
 
 ```bash
-git clone ---
+git clone https://github.com/WyattCast44/peergoals.git
 ```
 
 #### Install PHP dependencies
@@ -41,8 +41,6 @@ DB_PASSWORD=
 ```bash
 php artisan migrate:fresh
 ```
-
-
     
 ## Running Tests
 
@@ -52,9 +50,6 @@ To run the test suite, run the following command
 php artisan test --parallel
 ```
 
-  
 ## License
 
 See [license.md](/license.md)
-
-  
