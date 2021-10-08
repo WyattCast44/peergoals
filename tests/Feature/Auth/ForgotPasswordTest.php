@@ -55,7 +55,7 @@ class ForgotPasswordTest extends TestCase
             ->set('email', $user->email)
             ->call('attempt')
             ->assertHasNoErrors()
-            ->assertSet('emailSent', true);
+            ->assertSee('Password reset email sent');
     }
 
     public function test_a_valid_email_address_will_get_sent_an_email()
@@ -64,8 +64,7 @@ class ForgotPasswordTest extends TestCase
 
         Livewire::test('auth.forgot-password')
             ->set('email', $user->email)
-            ->call('attempt')
-            ->assertSet('emailSent', true);
+            ->call('attempt');
 
         $this->assertDatabaseHas('password_resets', [
             'email' => $user->email,
