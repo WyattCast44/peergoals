@@ -74,4 +74,20 @@ class User extends Authenticatable
     {
         return (bool) $this->two_factor_secret;
     }
+
+    /**
+     * Configuration, Misc
+     */
+    /**
+     * Send a password reset notification to the user.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    // public function sendPasswordResetNotification(string $token): void
+    // {
+    //     $url = 'https://example.com/reset-password?token='.$token;
+
+    //     $this->notify(new ResetPasswordNotification($url));
+    // }
 }
