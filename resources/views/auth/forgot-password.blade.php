@@ -1,50 +1,54 @@
-<section>
+<div class="w-full max-w-lg py-4 mx-6 md:mx-auto">
 
-    <h2 class="w-full max-w-lg mx-6 text-3xl font-bold leading-none text-gray-700 md:mx-auto">
-        Reset your Password
-    </h2>
-
-    <x-spacer class="py-3" />
-
-    <div class="w-full max-w-lg py-4 mx-6 md:mx-auto">
-
-        @if (session()->has('success'))
-            <x-alerts.success message="{{ session('success') }}" />  
-        @endif
-
+    <x-panel title="Reset your password" icon="shield-check">
+           
         <form wire:submit.prevent="attempt">
 
-            <label for="email" class="flex flex-col space-y-2 mb-">
+            @if (session()->has('success'))
+                <x-alerts.success message="{{ session('success') }}" />  
+            @endif
 
-                <span class="text-lg text-gray-600">Your Email Address</span>
+            <div class="grid grid-cols-1 grid-rows-1 gap-3">
 
-                <x-inputs.text 
-                    autofocus
-                    id="email"
-                    type="email" 
-                    name="email"
-                    autocomplete="email"
-                    wire:model.defer="email"
-                    required />
-                    
-                <x-errors.inline-validation key="email" />
-                    
-            </label>
+                <label for="email" class="text-gray-600 flex-nowrap">
+                    Forgot your password? Not to worry, enter the email address associated with your account and we will send you a link to reset your password.
+                </label>
+        
+                <div class="space-y-1">
 
-            <div class="flex flex-col mt-6 space-y-6">
-
-                <x-buttons.primary tag="button" type="submit" class="selection:bg-gray-100 selection:text-gray-700">
+                    <x-inputs.text
+                        autofocus 
+                        id="email"
+                        type="email" 
+                        name="email"
+                        class="w-full border-gray-400"
+                        wire:model.defer="email"
+                        required />
+        
+                    <x-errors.inline-validation key="email" />
+    
+                </div>                    
+    
+            </div>
+    
+            <x-spacer class="py-2" />
+    
+            <div class="flex items-center justify-end">
+                
+                <x-buttons.ghost>
                     Send Password Reset Email
-                </x-buttons.primary>
-
-                <div class="space-y-2 md:space-y-1">
-                    <p>Remembered your password? <a href="{{ route('login') }}">Try logging in</a>.</p>
-                </div>
+                </x-buttons.ghost>
 
             </div>
-
+    
         </form>
+
+    </x-panel>
+
+    <div class="mt-4 space-y-2 md:space-y-1">
     
+        <p class="text-center">Remembered your password? <a href="{{ route('login') }}" class="text-purple-600 hover:text-purple-700 hover:underline">Log in</a></p>
+
     </div>
-    
-</section>
+
+</div>

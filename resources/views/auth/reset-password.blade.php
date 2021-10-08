@@ -1,80 +1,112 @@
-<div>
+<div class="w-full max-w-lg py-4 mx-6 md:mx-auto">
 
-    @error('token')
-        <x-alerts.error :message="$message" />
-    @enderror
+    <x-panel title="Reset your password" icon="shield-check">
+           
+        <form wire:submit.prevent="resetPassword">
 
-    @error('general')
-        <x-alerts.error :message="$message" />
-    @enderror
+            @error('token')
+                <x-alerts.error :message="$message" />
+            @enderror
 
-    <form wire:submit.prevent="resetPassword" class="space-y-2" "">
+            @error('general')
+                <x-alerts.error :message="$message" />
+            @enderror
 
-        <label for="email" class="block">
+            <p class="pb-2 border-b border-gray-300">
+                This form will allow you to reset your forgotten password, once you submit the form you will be logged in and your  password will be updated.
+            </p>
 
-            <span>Email Address</span>
+            <x-spacer class="py-2" />
 
-            <input 
-                class=""
-                id="email"
-                type="email" 
-                name="email"
-                wire:model.defer="email"
-                required>
+            <div class="grid grid-cols-1 gap-2">
+                
+                <label for="email" class="text-gray-600 flex-nowrap">
+                    Email Address
+                </label>
+        
+                <div class="col-span-2 space-y-1">
 
-        </label>
+                    <x-inputs.text
+                        autofocus 
+                        id="email"
+                        type="email" 
+                        name="email"
+                        class="w-full border-gray-400"
+                        wire:model.defer="email"
+                        required />
+        
+                    <x-errors.inline-validation key="email" />
+    
+                </div> 
 
-        <x-errors.inline-validation key="email" />
+                <label for="new_password" class="text-gray-600 flex-nowrap">
+                    New Password
+                </label>
+        
+                <div class="col-span-2 space-y-1">
 
-        <label for="new_password" class="block">
+                    <x-inputs.password
+                        id="new_password"
+                        name="new_password"
+                        wire:model.defer="new_password"
+                        class="w-full"
+                        autocomplete="new_password"
+                        required />
 
-            <span>New Password</span>
+                    <x-errors.inline-validation key="new_password" />
+    
+                </div>                    
 
-            <input 
-                class=""
-                id="new_password"
-                type="password" 
-                name="new_password"
-                wire:model.defer="new_password"
-                required>
+                <label for="new_password_confirmation" class="text-gray-600 flex-nowrap">
+                    New Password Confirmation
+                </label>
+        
+                <div class="col-span-2 space-y-1">
 
-        </label>
+                    <x-inputs.password
+                        id="new_password_confirmation"
+                        name="new_password_confirmation"
+                        wire:model.defer="new_password_confirmation"
+                        class="w-full"
+                        autocomplete="new_password_confirmation"
+                        required />
+        
+                    <x-errors.inline-validation key="new_password_confirmation" />
+    
+                </div>                    
+    
+            </div>
 
-        <x-errors.inline-validation key="new_password" />
+            <label for="token" class="hidden">
 
-        <label for="new_password_confirmation" class="block">
+                <input 
+                    id="token"
+                    name="token"
+                    type="hidden" 
+                    class="hidden"
+                    wire:model.defer="token"
+                    required>
+    
+            </label>
+    
+            <x-spacer class="py-2" />
+    
+            <div class="flex items-center justify-end">
+                
+                <x-buttons.ghost>
+                    Reset Password and Login
+                </x-buttons.ghost>
 
-            <span>New Password Confirmation</span>
+            </div>
+    
+        </form>
 
-            <input 
-                class=""
-                id="new_password_confirmation"
-                type="password" 
-                name="new_password_confirmation"
-                wire:model.defer="new_password_confirmation"
-                required>
+    </x-panel>
 
-        </label>
+    <div class="mt-4 space-y-2 md:space-y-1">
+    
+        {{-- <p class="text-center">Remembered your password? <a href="{{ route('login') }}" class="text-purple-600 hover:text-purple-700 hover:underline">Log in</a></p> --}}
 
-        <label for="token" class="hidden">
+    </div>
 
-            <input 
-                id="token"
-                name="token"
-                type="hidden" 
-                class="hidden"
-                wire:model.defer="token"
-                required>
-
-        </label>
-
-        <div class="block">
-
-            <button type="submit" class="p-2 border">
-                Reset Password and Login
-            </button>
-
-        </div>
-
-    </form>
 </div>

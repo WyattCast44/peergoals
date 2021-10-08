@@ -85,9 +85,9 @@
 
     <div class="mt-4 space-y-2 md:space-y-1">
     
-        <p class="text-center">By registering you accept the <a href="{{ route('terms') }}">Terms</a> and the <a href="{{ route('privacy') }}">Privacy Policy</a></p>
+        <p class="text-center">By registering you accept the <a href="{{ route('terms') }}" class="text-purple-600 hover:text-purple-700 hover:underline">Terms</a> and the <a href="{{ route('privacy') }}" class="text-purple-600 hover:text-purple-700 hover:underline">Privacy Policy</a></p>
         
-        <p class="text-center">Already have an account? <a href="{{ route('login') }}">Login instead</a></p>
+        <p class="text-center">Already have an account? <a href="{{ route('login') }}" class="text-purple-600 hover:text-purple-700 hover:underline">Login instead</a></p>
 
     </div>
     

@@ -19,11 +19,11 @@ return [
         
         'name' => 'PeerGoals',
 
-        'tagline' => 'Simple peer goal accountability',
+        'tagline' => 'Simple goal accountability',
 
-        'title' => 'PeerGoals - Simple peer goal accountability',
+        'title' => 'PeerGoals - Simple goal accountability',
 
-        'description' => 'Simple peer goal accountability for humans',
+        'description' => 'Simple goal accountability for humans',
 
     ],
 
@@ -177,6 +177,7 @@ return [
         /*
          * Package Service Providers...
          */
+        App\Providers\TelescopeServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -185,6 +186,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\TelescopeServiceProvider::class,
         App\Providers\FortifyServiceProvider::class,
 
     ],

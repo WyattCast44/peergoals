@@ -50,10 +50,6 @@
             Create your first goal
         </x-buttons.primary>
 
-        <x-buttons.ghost tag="a" href="/test">
-            Check out a demo
-        </x-buttons.ghost>
-
     </section>
 
     <x-spacer class="pb-64" />
