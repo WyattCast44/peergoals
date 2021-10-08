@@ -1,4 +1,4 @@
-<x-panel title="Email Passphrase Setup" icon="annotation">
+<x-panel title="Email Passphrase" icon="annotation">
 
     <p>
         In today's world where phishing emails are common we recommend setting a passphrase that we will include in our emails to you so that you know for sure that when we email you it is 100% legimate.

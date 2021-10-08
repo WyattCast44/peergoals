@@ -9,12 +9,14 @@ use App\Http\Livewire\Auth\ForgotPassword;
 use App\Http\Livewire\Auth\ConfirmPassword;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\EmailVerificationController;
+use Laravel\Fortify\Http\Controllers\TwoFactorAuthenticatedSessionController;
 
 Route::group(['middleware' => ['guest']], function () {
     Route::get('/login', Login::class)->name('login');
     Route::get('/register', Register::class)->name('register');
     Route::get('/forgot-password', ForgotPassword::class)->name('password.email');
     Route::get('/reset-password/{token}', ResetPassword::class)->name('password.reset');
+    Route::get('/two-factor-challenge', [TwoFactorAuthenticatedSessionController::class, 'create'])->name('two-factor.login');
 });
 
 Route::group(['middleware' => ['auth']], function () {

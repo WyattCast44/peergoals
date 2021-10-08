@@ -7,6 +7,7 @@ use Vinkla\Hashids\Facades\Hashids;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -43,10 +44,7 @@ class User extends Authenticatable
         'terms_and_privacy_accepted_at' => 'datetime',
     ];
 
-    /**
-     * @return void
-     */
-    protected static function booted()
+    protected static function booted(): void
     {
         static::created(function ($user) {
             $user->update([
@@ -73,6 +71,14 @@ class User extends Authenticatable
     public function twoFactorAuthEnabled(): bool
     {
         return (bool) $this->two_factor_secret;
+    }
+    
+    /**
+     * Relationships
+     */
+    public function goals(): HasMany
+    {
+        return $this->hasMany(Goal::class);
     }
 
     /**

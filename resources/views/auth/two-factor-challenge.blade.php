@@ -1,27 +1,30 @@
+@extends('layouts.auth')
+
+@section('content')
+    
 <div class="w-full max-w-lg py-4 mx-6 md:mx-auto">
 
-    <x-panel title="Confirm your password to continue" icon="lock">
+    <x-panel title="Enter your 2FA code" icon="shield-check">
            
-        <form wire:submit.prevent="attempt">
+        <form method="POST" action="{{ url('/two-factor-challenge') }}">
+
+            @csrf
 
             <div class="grid grid-cols-4 grid-rows-1 gap-3">
 
-                <label for="password" class="flex items-center">
-                    <span class="text-gray-600 flex-nowrap">Password</span>
+                <label for="code" class="flex items-center">
+                    <span class="text-gray-600 flex-nowrap">Code</span>
                 </label>
         
                 <div class="col-span-3 space-y-1">
 
                     <x-inputs.password
-                        autofocus
-                        id="password"
+                        id="code"
                         class="w-full"
-                        name="password"
-                        wire:model.defer="password"
-                        autocomplete="password"
+                        name="code"
                         required />
         
-                    <x-errors.inline-validation key="password" />
+                    <x-errors.inline-validation key="code" />
     
                 </div>                    
     
@@ -42,3 +45,5 @@
     </x-panel>
 
 </div>
+
+@endsection

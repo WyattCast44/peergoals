@@ -14,18 +14,6 @@
                 <a href="{{ route('dashboard') }}" class="inline-block text-xl font-bold text-gray-700 md:text-3xl">{{ config('app.meta.name') }}</a>
             </h1>
 
-            <div class="items-center hidden space-x-2 md:flex">
-{{-- 
-                <a href="#" class="flex items-center justify-center px-3 py-1 text-gray-600 border border-gray-300 rounded-md bg-gray-50 hover:bg-gray-100 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 focus:shadow-inner disabled:opacity-50 disabled:bg-gray-500 disabled:cursor-wait">
-                    <x-icon-reciept class="w-4 h-4 mr-1" /> Goals
-                </a>
-
-                <a href="#" class="flex items-center justify-center px-3 py-1 text-gray-600 border border-gray-300 rounded-md bg-gray-50 hover:bg-gray-100 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 focus:shadow-inner disabled:opacity-50 disabled:bg-gray-500 disabled:cursor-wait">
-                    <x-icon-template class="w-4 h-4 mr-1" /> Peers
-                </a> --}}
-
-            </div>
-
             <div class="flex items-center justify-center space-x-2.5">
 
                 <a href="{{ route('dashboard.notifications.index') }}" class="items-center justify-center hidden w-8 h-8 rounded-full md:flex focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 focus:shadow-inner disabled:opacity-50 disabled:bg-gray-500 disabled:cursor-wait">

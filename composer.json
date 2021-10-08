@@ -7,6 +7,7 @@
     "require": {
         "php": "^7.3|^8.0",
         "blade-ui-kit/blade-icons": "^1.1",
+        "blade-ui-kit/blade-ui-kit": "^0.3.1",
         "danharrin/livewire-rate-limiting": "^0.3.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -14,6 +15,7 @@
         "laravel/framework": "^8.54",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "league/commonmark": "^1.4",
         "livewire/livewire": "^2.6",
         "spatie/laravel-queueable-action": "^2.12",
         "vinkla/hashids": "^9.1",

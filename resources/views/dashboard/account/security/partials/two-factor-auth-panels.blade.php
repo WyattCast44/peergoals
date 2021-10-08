@@ -56,9 +56,9 @@
                 
                 @csrf
                 
-                <x-buttons.primary tag="button" type="submit">
+                <x-buttons.ghost tag="button" type="submit">
                     Enable two factor authentication
-                </x-buttons.primary>            
+                </x-buttons.ghost>            
 
             </form>
                     

@@ -6,10 +6,10 @@
 
     <x-spacer class="py-1" />
     
-    @include('dashboard.account.security.partials.two-factor-auth-panels')
+    @include('dashboard.account.security.partials.email-passphrase-panel')
     
     <x-spacer class="py-1" />
     
-    @include('dashboard.account.security.partials.email-passphrase-panel')
+    @include('dashboard.account.security.partials.two-factor-auth-panels')    
     
 @endsection
