@@ -21,7 +21,6 @@ class AccountPagesTest extends TestCase
         collect([
             'dashboard.account.index',
             'dashboard.account.security',
-            'dashboard.account.activity',
             'dashboard.account.api',
         ])->each(function($name) {
             $this->get(route($name))->assertOk();
@@ -33,7 +32,6 @@ class AccountPagesTest extends TestCase
         collect([
             'dashboard.account.index',
             'dashboard.account.security',
-            'dashboard.account.activity',
             'dashboard.account.api',
         ])->each(function($name) {
             $this->get(route($name))->assertRedirect(route('login'));

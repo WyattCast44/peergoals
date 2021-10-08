@@ -23,7 +23,6 @@ Route::middleware(['auth'])->group(function () {
     Route::view('/dashboard/account/api', 'dashboard.account.api.index')->name('dashboard.account.api');
     Route::view('/dashboard/account/clients', 'dashboard.account.clients.index')->name('dashboard.account.clients');
     Route::view('/dashboard/account/security', 'dashboard.account.security.index')->name('dashboard.account.security');
-    Route::view('/dashboard/account/activity', 'dashboard.account.activity.index')->name('dashboard.account.activity');
     
 });
 

@@ -27,11 +27,6 @@
                         active="dashboard.account.security" 
                         label="Security" 
                         value="{{ route('dashboard.account.security') }}" />
-                    
-                    <x-nav.select-option 
-                        active="dashboard.account.activity" 
-                        label="Activity Log" 
-                        value="{{ route('dashboard.account.activity') }}" />
 
                     <x-nav.select-option 
                         active="dashboard.account.api" 
@@ -51,10 +46,6 @@
 
                 <a href="{{ route('dashboard.account.security') }}" class="flex items-center font-semibold rounded-sm hover:text-purple-600 group focus:outline-none focus:ring focus:ring-gray-300 focus:ring-offset-2 {{ active('dashboard.account.security', 'text-purple-700') }}">
                     <x-icon-lock class="w-5 h-5 ml-1 mr-2 text-current text-gray-600 group-hover:text-purple-600" /> Security
-                </a>
-
-                <a href="{{ route('dashboard.account.activity') }}" class="flex items-center font-semibold rounded-sm hover:text-purple-600 group focus:outline-none focus:ring focus:ring-gray-300 focus:ring-offset-2 {{ active('dashboard.account.activity', 'text-purple-700') }}">
-                    <x-icon-shield-check class="w-5 h-5 ml-1 mr-2 text-current text-gray-600 group-hover:text-purple-600" /> Activity Log
                 </a>
 
                 <a href="{{ route('dashboard.account.api') }}" class="flex items-center font-semibold rounded-sm hover:text-purple-600 group focus:outline-none focus:ring focus:ring-gray-300 focus:ring-offset-2 {{ active('dashboard.account.api', 'text-purple-700') }}">

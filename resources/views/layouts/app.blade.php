@@ -54,6 +54,13 @@
                             </p>
                         </div>
 
+                        <div class="py-1.5 border-b border-gray-300 px-3 select-none mb-1">
+                            <p class="text-xs text-gray-500">Your peer goal code</p>
+                            <p class="text-base font-semibold text-gray-700 truncate select-all">
+                                {{ auth()->user()->peer_code }}
+                            </p>
+                        </div>
+
                         <a href="{{ route('dashboard.account.index') }}" 
                             class="block w-full px-3 py-1 text-left hover:bg-gray-100 focus:outline-none focus:bg-gray-50 focus:ring-1 focus:ring-gray-200 focus:shadow-inner">My Account</a>
 

@@ -29,7 +29,7 @@
                             class="w-full" />
 
                         <label for="peers" class="block text-gray-500">
-                            Request a peer to help you on track?
+                            Request some peers to help you stay on track?
                         </label>
     
                         <x-inputs.select id="peers" class="w-full">
@@ -44,8 +44,8 @@
                 
             </main>
 
-            <aside class="w-48 h-40 bg-gray-200 rounded shadow-inner">
-
+            <aside class="w-48 h-40 p-3 bg-gray-200 rounded shadow-inner py-1.5">
+                ...
             </aside>
 
         </div>
