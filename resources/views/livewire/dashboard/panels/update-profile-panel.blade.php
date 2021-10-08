@@ -19,6 +19,7 @@
                     type="text" 
                     name="name"
                     class="w-full"
+                    spellcheck="false"
                     autocomplete="name"
                     wire:model.defer="user.name"
                     required />

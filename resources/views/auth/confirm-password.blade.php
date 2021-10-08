@@ -12,12 +12,12 @@
         
                 <div class="col-span-3 space-y-1">
 
-                    <x-inputs.text 
+                    <x-inputs.password
                         id="password"
-                        type="password" 
+                        class="w-full"
                         name="password"
-                        class="w-full border-gray-400"
                         wire:model.defer="password"
+                        autocomplete="password"
                         required />
         
                     <x-errors.inline-validation key="password" />

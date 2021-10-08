@@ -23,3 +23,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/confirm-password', ConfirmPassword::class)->name('password.confirm');
     Route::get('/email/verify/{id}/{hash}', EmailVerificationController::class)->name('verification.verify');
 });
+
+Route::get('/.well-known/change-password', function() {
+    if (auth()->check()) {
+        return redirect()->route('dashboard.account.security');
+    } 
+
+    return redirect()->route('password.email');
+});

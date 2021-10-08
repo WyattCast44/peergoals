@@ -18,6 +18,7 @@
 
     @yield('body')
     
+    @stack('footer')
     <livewire:scripts />
     <script src="{{ mix('js/app.js') }}" defer></script>
     @stack('scripts')

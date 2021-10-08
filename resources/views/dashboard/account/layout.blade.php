@@ -65,10 +65,6 @@
                     <x-icon-users class="w-5 h-5 ml-1 mr-2 text-current text-gray-600 group-hover:text-purple-600" /> Clients
                 </a>
 
-                <a href="{{ route('dashboard.account.clients') }}" class="flex items-center font-semibold rounded-sm hover:text-purple-600 group focus:outline-none focus:ring focus:ring-gray-300 focus:ring-offset-2 {{ active('dashboard.account.e', 'text-purple-700') }}">
-                    <x-icon-identification class="w-5 h-5 ml-1 mr-2 text-current text-gray-600 group-hover:text-purple-600" /> Business Profiles
-                </a>
-
             </nav>
             <!-- /desktop nav -->
             
