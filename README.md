@@ -30,10 +30,16 @@ yarn prod
 
 #### Update `.env`
 
-```txt
+```text
 DB_DATABASE=peergoals
 DB_USERNAME=root
 DB_PASSWORD=
+```
+
+You will also need to set a unique salt for the HashIds package (read more [here](https://hashids.org/))
+
+```text
+HASH_IDS_SALT="example-salt"
 ```
 
 #### Migrate database
@@ -49,6 +55,10 @@ To run the test suite, run the following command
 ```bash
 php artisan test --parallel
 ```
+
+## Acknowledgements
+
+- Icons provided by Feather Icons and Heroicons
 
 ## License
 

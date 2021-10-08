@@ -49,7 +49,7 @@
                         <div class="py-1.5 border-b border-gray-300 px-3 select-none mb-1">
                             <p class="text-xs text-gray-500">Signed in as</p>
                             <p class="text-base font-semibold text-gray-700 truncate" x-data 
-                                x-on:user-name-updated.window="$el.innerHTML = $event.detail.name">
+                                x-on:user-name-updated.window="$el.innerHTML = $event.detail.name" title="{{ auth()->user()->name }}">
                                 {{ auth()->user()->name }}
                             </p>
                         </div>

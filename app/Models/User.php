@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Laravel\Sanctum\HasApiTokens;
+use Vinkla\Hashids\Facades\Hashids;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -41,6 +42,18 @@ class User extends Authenticatable
         'api_disclaimer_accepted_at' => 'datetime',
         'terms_and_privacy_accepted_at' => 'datetime',
     ];
+
+    /**
+     * @return void
+     */
+    protected static function booted()
+    {
+        static::created(function ($user) {
+            $user->update([
+                'peer_code' => Hashids::encode($user->id),
+            ]);
+        });
+    }
 
     /**
      * Abilities, affordances, checks
