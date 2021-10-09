@@ -25,7 +25,7 @@
         <x-panel title="Enable API Access" icon="shield-exclamation">
 
             <p>
-                This page allows you to create and manage API tokens, which are tools meant for developers and programmers to extend PeerGoals. These tokens can be used to perform actions on your behalf and thus should be treated as secret/sensitive. If you are not familiar with API tokens or the service asking you for a token, please proceed carefully. If you
+                This page allows you to create and manage API tokens, which are tools meant for developers and programmers to extend {{ config('app.meta.name') }}. These tokens can be used to perform actions on your behalf and thus should be treated as secret/sensitive. If you are not familiar with API tokens or the service asking you for a token, please proceed carefully. If you
                 would like to proceed, please click the button below to enable API access for your account.
             </p>
 

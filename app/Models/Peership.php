@@ -17,4 +17,17 @@ class Peership extends Model
     const ACCEPTED_STATE = 'accepted';
     const DENIED_STATE = 'denied';
     const BLOCKED_STATE = 'blocked';
+
+    /**
+     * Relationships
+     */
+    public function sender()
+    {
+        return $this->belongsTo(User::class, 'requesting_user_id');
+    }
+
+    public function reciever()
+    {
+        return $this->belongsTo(User::class, 'second_user_id');
+    }
 }

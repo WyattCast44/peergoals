@@ -2,6 +2,8 @@
 
 namespace App\Models\Concerns;
 
+use App\Models\User;
+use App\Models\Peership;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
@@ -82,5 +84,46 @@ trait ManagesPeerships
     {
         return $this->hasMany(Peership::class, 'second_user_id')
             ->where('status', 'pending');
+    }
+
+    // send peer request
+    public function sendPeerRequestTo(User $user = null): void
+    {
+        if($user === null) {
+            return;
+        }
+
+        // check if user is rqsting themselves
+        // if yes do nothing 
+        if ($this->id === $user->id) {
+            return;
+        }
+
+        // check if reciever has blocked the user
+        // if yes do nothing
+        if($user->blocked_peers->contains($this)) {
+            return;
+        }
+
+        // check if request already exists
+        // if yes do nothing
+        if($exist = Peership::where([
+            'first_user_id' => $this->id,
+            'second_user_id' => $user->id,
+        ])->orWhere([
+            'first_user_id' => $user->id,
+            'second_user_id' => $this->id,
+        ])->first()) {
+            $exist->update(['status' => 'accepted']);
+            return;
+        }
+
+        // actually create the request
+        Peership::create([
+            'first_user_id' => $this->id,
+            'second_user_id' => $user->id,
+            'requesting_user_id' => $this->id,
+            'status' => 'pending',
+        ]);
     }
 }

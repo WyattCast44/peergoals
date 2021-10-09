@@ -12,20 +12,25 @@
 
     <div class="w-full max-w-xl mx-6 md:max-w-4xl md:mx-auto">
 
-        <div class="flex w-full space-x-8">
+        <div class="flex w-full space-x-6">
 
-            <main class="flex-1">
+            <main class="flex-1 space-y-4">
 
                 <livewire:dashboard.panels.create-goal-panel />  
                 
-                <x-spacer class="py-2" />
-                
-                <livewire:dashboard.panels.manage-goals-panel />                   
+                <livewire:dashboard.panels.manage-goals-panel /> 
+
+                <livewire:dashboard.panels.manage-peer-requests-panel />                   
                 
             </main>
 
-            <aside class="w-56 h-40 p-3 bg-gray-200 rounded shadow-inner py-1.5">
-                ...
+            <aside class="space-y-2 w-60">
+
+                <livewire:dashboard.panels.send-peer-request-panel />
+
+                <p class="select-all">
+                    {{ auth()->user()->peer_code }}
+                </p>
             </aside>
 
         </div>

@@ -19,3 +19,8 @@
 - use sidecar to generate images
     - "Wyatt Castaneda is looking for peers to keep him/her accountable"
 - will need to add gender field
+
+Peership system
+- need to check if a request is already sent
+- need to check if reciever has blocked user
+- need to check if reciever and user are already peers

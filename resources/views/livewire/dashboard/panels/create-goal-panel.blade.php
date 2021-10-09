@@ -9,7 +9,7 @@
         <div class="space-y-2">
 
             <label for="goal.body" class="block text-gray-500">
-                What do you want to accomplish? <span class="text-sm">(you can write in markdown)</span>
+                What do you want to accomplish?
             </label>
     
             <x-inputs.textarea 
