@@ -13,9 +13,6 @@ Route::middleware(['auth'])->group(function () {
 
     // General
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
-    Route::view('/dashboard/invoices', 'dashboard.invoices.index')->name('dashboard.invoices.index');
-    Route::view('/dashboard/templates', 'dashboard.templates.index')->name('dashboard.templates.index');
-    Route::view('/dashboard/invoices/create', 'dashboard.invoices.create')->name('dashboard.invoices.create');
     Route::view('/dashboard/notifications', 'dashboard.notifications.index')->name('dashboard.notifications.index');
     
     // Account
