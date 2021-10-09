@@ -65,11 +65,17 @@ class CreateGoalPanel extends Component
             $goal->user_id = auth()->id();
         })->save();
 
+        $this->selectedPeers->each(function($peerId) {
+            $this->goal->peers()->attach($peerId);
+        });
+
         session()->flash('success', 'Goal created!');
 
         $this->emit('goalCreated');
 
         $this->goal = new Goal;
+        $this->selectedPeers = collect();
+        $this->availablePeers = auth()->user()->peers;
     }
 
     public function render()

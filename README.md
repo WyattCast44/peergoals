@@ -4,7 +4,7 @@ PeerGoals is a full stack web application I built for the first ever [LaraJam](h
 
 The inspiration for this project came from listening to a couple of podcasts where the hosts ask someone to keep them accountable to some goal, this isn't a new idea by any means but this tool offer a nice UI to help create goals and ask your peers to help keep you accountable for specific goals.
 
-Please keep in mind this application was built in less than 2.5 work days so some portions of the code/ui are janky, incomplete and untested.
+Please keep in mind this application was built in less than 2.5 work days so some portions of the code/ui are janky, incomplete and untested. In particular, the "friend" system still needs lots of 💖.
 
 ## Installation
 

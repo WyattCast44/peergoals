@@ -43,4 +43,9 @@ class Goal extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function peers()
+    {
+        return $this->belongsToMany(User::class, 'goal_peers', 'goal_id', 'user_id');
+    }
 }
