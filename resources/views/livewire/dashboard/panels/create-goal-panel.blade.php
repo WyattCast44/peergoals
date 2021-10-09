@@ -39,7 +39,7 @@
                         class="absolute right-0 bg-white border border-gray-300 divide-y rounded shadow-lg top-10 w-36" >
                         
                         <div class="p-1">
-                            <input type="search" wire:model="search" name="search" id="search" class="w-full p-1 text-sm border-gray-400 rounded">
+                            <input type="search" wire:model="search" name="search" id="search" class="w-full p-1 text-sm border-gray-400 rounded focus:border-purple-400 focus:outline-none focus:ring-1 focus:ring-purple-400">
                         </div>
                         
                         <ul class="divide-y">
