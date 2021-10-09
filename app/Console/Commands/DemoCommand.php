@@ -46,14 +46,19 @@ class DemoCommand extends Command
 
         $this->info("Thanks, setting things up now!");
 
+        $peers = User::factory()
+            ->times(10)
+            ->create()
+            ->each(function($peer) use ($user) {
+                $user->sendPeerRequestTo($user);
+            });
+
         $goals = Goal::factory()
             ->times(10)
             ->create([
                 'user_id' => $user->id,
-            ]);
+            ]);        
 
-        $users = User::factory()
-            ->times(10)
-            ->create();
+        $this->info("\nGood to go, you can login using your email and password, have fun 💖");
     }
 }

@@ -42,7 +42,7 @@
                             <input type="search" wire:model="search" name="search" id="search" class="w-full p-1 text-sm border-gray-400 rounded focus:border-purple-400 focus:outline-none focus:ring-1 focus:ring-purple-400">
                         </div>
                         
-                        <ul class="divide-y">
+                        <ul class="overflow-y-scroll divide-y max-h-32 no-scrollbar">
                             
                             @forelse ($availablePeers as $peer)
                                 <li class="flex items-center px-2 py-1.5 space-x-2 hover:bg-gray-100 cursor-pointer" wire:click="addPeerToGoal({{ $peer->id }})">

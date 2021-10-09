@@ -19,8 +19,8 @@ class ManagePeerRequestsPanel extends Component
     public function approve($peershipId)
     {
         Peership::find($peershipId)->update([
-            // 'requesting_user_id' => auth()->id(),
-            'status' => 'approved',
+            'requesting_user_id' => auth()->id(),
+            'status' => 'accepted',
         ]);
 
         $this->queryRequests();

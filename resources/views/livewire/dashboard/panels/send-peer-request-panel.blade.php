@@ -11,7 +11,6 @@
             <span class="text-sm text-gray-600">Enter someones peer code</span>
             
             <x-inputs.text 
-                autofocus
                 id="code"
                 type="text" 
                 name="code"

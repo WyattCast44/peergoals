@@ -25,9 +25,9 @@ class CreateGoalPanel extends Component
     {
         $this->goal = new Goal;
 
-        $this->availablePeers = auth()->user()->peers;
-
         $this->selectedPeers = collect();
+
+        $this->availablePeers = auth()->user()->peers;
     }
 
     public function addPeerToGoal($peerId)
@@ -52,7 +52,9 @@ class CreateGoalPanel extends Component
             return;
         }
 
-        $this->availablePeers = $this->availablePeers->filter(function($peer) use ($value) {
+        $this->availablePeers = auth()->user()->peers->filter(function($peer) {
+            return !$this->selectedPeers->contains($peer);
+        })->filter(function($peer) use ($value) {
             return Str::contains(Str::lower($peer->name), $value);
         });
     }

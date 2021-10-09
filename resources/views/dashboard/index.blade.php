@@ -10,7 +10,7 @@
 
     <x-spacer class="py-3" />
 
-    <div class="w-full max-w-xl mx-6 md:max-w-4xl md:mx-auto">
+    <div class="w-full max-w-xl mx-6 mb-10 md:max-w-4xl md:mx-auto">
 
         <div class="flex w-full space-x-6">
 
@@ -20,7 +20,7 @@
                 
                 <livewire:dashboard.panels.manage-goals-panel /> 
 
-                {{-- <livewire:dashboard.panels.manage-peer-requests-panel />                    --}}
+                <livewire:dashboard.panels.manage-peer-requests-panel />
                 
             </main>
 

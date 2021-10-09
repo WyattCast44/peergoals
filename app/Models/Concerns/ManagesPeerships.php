@@ -115,17 +115,30 @@ trait ManagesPeerships
         // approved, @TODO tmp fix, would like to
         // show the user a request already exists and 
         // they can approve or deny
-        if($peership = Peership::where([
+
+        // if($peership = Peership::where([
+        //     'first_user_id' => $this->id,
+        //     'second_user_id' => $user->id,
+        // ])->orWhere([
+        //     'first_user_id' => $user->id,
+        //     'second_user_id' => $this->id,
+        // ])->first()) {
+        //     $peership->update([
+        //         'requesting_user_id' => $this->id,
+        //         'status' => 'accepted'
+        //     ]);
+        //     return;
+        // }
+
+        // if either user has already sent a 
+        // request do nothing
+        if(Peership::where([
             'first_user_id' => $this->id,
             'second_user_id' => $user->id,
         ])->orWhere([
             'first_user_id' => $user->id,
             'second_user_id' => $this->id,
-        ])->first()) {
-            $peership->update([
-                'requesting_user_id' => $this->id,
-                'status' => 'accepted'
-            ]);
+        ])->exists()) {
             return;
         }
 
@@ -135,6 +148,14 @@ trait ManagesPeerships
             'second_user_id' => $user->id,
             'requesting_user_id' => $this->id,
             'status' => 'pending',
+        ]);
+    }
+
+    public function acceptRequest(Peership $peership)
+    {
+        $peership->update([
+            'requesting_user_id' => auth()->id(),
+            'status' => 'accepted',
         ]);
     }
 }
