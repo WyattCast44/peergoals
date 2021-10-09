@@ -25,7 +25,7 @@
                     </div>
                         
                 @else
-                    
+
                     <div class="w-12 h-12 rounded-full">
                         <img 
                             wire:target="new_avatar"

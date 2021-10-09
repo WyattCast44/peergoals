@@ -59,7 +59,11 @@ class User extends Authenticatable
      */
     public function getAvatarUrlAttribute()
     {
-        return Storage::url($this->avatar);
+        if($this->avatar) {
+            return Storage::url($this->avatar);
+        }
+
+        return 'https://www.gravatar.com/avatar/' . md5($this->email) . '?s=100&d=mp';
     }
 
     /**
