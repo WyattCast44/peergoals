@@ -40,11 +40,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
+        'public' => 'boolean',
         'email_verified_at' => 'datetime',
         'api_disclaimer_accepted_at' => 'datetime',
         'terms_and_privacy_accepted_at' => 'datetime',
     ];
 
+    /**
+     * Configuration, lifecyle hooks, etc
+     */
     protected static function booted(): void
     {
         static::created(function ($user) {
@@ -52,6 +56,11 @@ class User extends Authenticatable
                 'peer_code' => Hashids::encode($user->id),
             ]);
         });
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'username';
     }
 
     /**
@@ -79,6 +88,11 @@ class User extends Authenticatable
         $this->update([
             'api_disclaimer_accepted_at' => now(),
         ]);
+    }
+
+    public function isPublic(): bool
+    {
+        return $this->public;
     }
 
     public function twoFactorAuthEnabled(): bool

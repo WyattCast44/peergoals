@@ -25,10 +25,16 @@ class UserFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
+            'username' => $this->faker->unique()->userName,
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => Hash::make('password'),
+            'public' => (bool) rand(0, 1),
             'avatar' => null,
+            'email_passphrase' => null,
+            'peer_code' => null,
+            'api_disclaimer_accepted_at' => null,
+            'terms_and_privacy_accepted_at' => now(),
             'remember_token' => Str::random(10),
         ];
     }

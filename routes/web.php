@@ -21,5 +21,3 @@ Route::middleware(['auth'])->group(function () {
     Route::view('/dashboard/account/security', 'dashboard.account.security.index')->name('dashboard.account.security');
     
 });
-
-Route::view('/docs', 'docs.index')->name('docs.index');

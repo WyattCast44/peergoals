@@ -5,9 +5,11 @@ namespace Tests\Feature\Auth;
 use Tests\TestCase;
 use Livewire\Livewire;
 use App\Http\Livewire\Auth\Register;
+use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use PDO;
 
 class RegisterTest extends TestCase
 {
@@ -40,6 +42,58 @@ class RegisterTest extends TestCase
             ->call('register')
             ->assertHasErrors(['name' => [
                 'required'
+            ]]);
+    }
+
+    public function test_username_is_required()
+    {
+        Livewire::test(Register::class)
+            ->set('name', 'wyatt')
+            ->set('email', 'user@email.com')
+            ->set('password', 'password')
+            ->set('password_confirmation', 'password')
+            ->call('register')
+            ->assertHasErrors(['username' => [
+                'required'
+            ]]);
+    }
+
+    public function test_username_cannot_be_disallowed()
+    {
+        Livewire::test(Register::class)
+            ->set('name', 'wyatt')
+            ->set('username', 'admin')
+            ->set('email', 'user@email.com')
+            ->set('password', 'password')
+            ->set('password_confirmation', 'password')
+            ->call('register')
+            ->assertHasErrors(['username']);
+
+        Livewire::test(Register::class)
+            ->set('name', 'wyatt')
+            ->set('username', 'xxx')
+            ->set('email', 'user@email.com')
+            ->set('password', 'password')
+            ->set('password_confirmation', 'password')
+            ->call('register')
+            ->assertHasErrors(['username']);
+    }
+
+    public function test_username_cannot_already_exist()
+    {
+        $existingUser = User::factory()->create([
+            'username' => 'iexist',
+        ]);
+
+        Livewire::test(Register::class)
+            ->set('name', 'wyatt')
+            ->set('username', $existingUser->username)
+            ->set('email', 'user@email.com')
+            ->set('password', 'password')
+            ->set('password_confirmation', 'password')
+            ->call('register')
+            ->assertHasErrors(['username' => [
+                'unique'
             ]]);
     }
 

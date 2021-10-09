@@ -17,12 +17,13 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('username')->unique()->index();
-            $table->string('email')->unique();
-            $table->string('peer_code')->unique()->nullable();
+            $table->string('email')->unique()->index();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->boolean('public')->default(true);
             $table->text('avatar')->nullable();
             $table->text('email_passphrase')->nullable();
+            $table->string('peer_code')->unique()->nullable();
             $table->dateTime('api_disclaimer_accepted_at')->nullable();
             $table->dateTime('terms_and_privacy_accepted_at')->nullable();
             $table->rememberToken();

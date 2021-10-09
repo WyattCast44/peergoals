@@ -19,7 +19,7 @@ return [
     | will be merged and checked. Seperate words with 
     | commas and no spaces
     */
-    'disallowed' => 'peergroup,peergroup_admin,peergroupadmin',
+    'disallowed' => 'peergroup,peergroup_admin,peergroupadmin,notifications,docs,account',
 
     /*
     | --------------------------------------------------------
