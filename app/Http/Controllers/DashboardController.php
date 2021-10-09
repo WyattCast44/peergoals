@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Cache;
-
 class DashboardController extends Controller
 {
     public function __construct()
@@ -13,6 +11,7 @@ class DashboardController extends Controller
 
     public function __invoke()
     { 
+        // dd(auth()->user()->peers);
         return view('dashboard.index');
     }
 }

@@ -21,10 +21,10 @@ class CreateGoalPanel extends Component
     public function create()
     {
         $this->validate();
-
-        $this->goal->user_id = auth()->id();
-
-        $this->goal->save();
+        
+        tap($this->goal, function($goal) {
+            $goal->user_id = auth()->id();
+        })->save();
 
         session()->flash('success', 'Goal created!');
 

@@ -14,15 +14,15 @@ trait ManagesPeerships
     {
         return $this->belongsToMany(User::class, 'peerships', 'first_user_id', 'second_user_id')
             ->withPivot('status')
-            ->wherePivot('status', 'confirmed');
+            ->wherePivot('status', 'accepted');
     }
 
     // peerships that this user accepted
 	protected function thisUserPeerOf(): BelongsToMany
 	{
 		return $this->belongsToMany(User::class, 'peerships', 'second_user_id', 'first_user_id')
-		->withPivot('status')
-		->wherePivot('status', 'confirmed');
+            ->withPivot('status')
+            ->wherePivot('status', 'accepted');
 	}
 
     // accessor allowing you call $user->peers
@@ -30,14 +30,15 @@ trait ManagesPeerships
 	{
 		if (!array_key_exists('peers', $this->relations)) {
             
-            if($peers = $this->peersOfThisUser) {
+            $peers = $this->peersOfThisUser;
+
+            if(!$peers->isEmpty()) {
                 $peers->merge($this->thisUserPeerOf);
             } else {
                 $peers = $this->thisUserPeerOf;
             }
 
             $this->setRelation('peers', $peers);            
-
         }
 
 		return $this->getRelation('peers');
@@ -66,14 +67,15 @@ trait ManagesPeerships
 	{
 		if (!array_key_exists('blocked_peers', $this->relations)) {
 
-            if($peers = $this->peersOfThisUserBlocked) {
+            $peers = $this->peersOfThisUserBlocked;
+
+            if(!$peers->isEmpty()) {
                 $peers->merge($this->thisUserPeerOfBlocked);
             } else {
                 $peers = $this->thisUserPeerOfBlocked;
             }
 
-			$this->setRelation('blocked_peers', $peers);
-            
+			$this->setRelation('blocked_peers', $peers);            
         } 
 
 		return $this->getRelation('blocked_peers');
@@ -106,15 +108,21 @@ trait ManagesPeerships
         }
 
         // check if request already exists
-        // if yes do nothing
-        if($exist = Peership::where([
+        // if yes update the request and mark 
+        // approved, @TODO tmp fix, would like to
+        // show the user a request already exists and 
+        // they can approve or deny
+        if($peership = Peership::where([
             'first_user_id' => $this->id,
             'second_user_id' => $user->id,
         ])->orWhere([
             'first_user_id' => $user->id,
             'second_user_id' => $this->id,
         ])->first()) {
-            $exist->update(['status' => 'accepted']);
+            $peership->update([
+                'requesting_user_id' => $this->id,
+                'status' => 'accepted'
+            ]);
             return;
         }
 

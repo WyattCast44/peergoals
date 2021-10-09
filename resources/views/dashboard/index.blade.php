@@ -28,6 +28,16 @@
 
                 <livewire:dashboard.panels.send-peer-request-panel />
 
+                <x-panel title="My Peers" :padding="false" icon="users">
+                    
+                    <ul>
+                        @foreach (auth()->user()->peers as $peership)
+                            <li>{{ $peership->name }}</li>
+                        @endforeach
+                    </ul>
+
+                </x-panel>
+
                 <p class="select-all">
                     {{ auth()->user()->peer_code }}
                 </p>

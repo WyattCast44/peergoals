@@ -2,10 +2,11 @@
    
     <ul class="p-3 divide-y">
 
-        @foreach ($user->peer_requests as $request)
+        @foreach ($requests as $request)
 
-            <li class="p-2">
-                {{ $request->sender->name }}
+            <li class="flex items-center justify-between p-2">
+                <p>{{ $request->sender->name }}</p>
+                <button wire:click="approve({{ $request->id }})">Approve</button>
             </li>
 
         @endforeach

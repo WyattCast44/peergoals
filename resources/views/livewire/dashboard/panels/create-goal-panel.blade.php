@@ -14,8 +14,9 @@
     
             <x-inputs.textarea 
                 id="goal.body"
+                class="w-full"
                 wire:model.defer="goal.body"
-                class="w-full" />
+                required />
             
             <x-errors.inline-validation key="goal.body" />
 

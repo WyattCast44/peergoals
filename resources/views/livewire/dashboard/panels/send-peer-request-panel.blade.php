@@ -2,6 +2,10 @@
                     
     <form wire:submit.prevent="sendRequest" class="px-4 py-2">
 
+        @error('error')
+            <x-alerts.error message="{{ $message }}" />
+        @enderror
+
         <label for="code" class="flex flex-col mb-2 space-y-2">
 
             <span class="text-sm text-gray-600">Enter someones peer code</span>
