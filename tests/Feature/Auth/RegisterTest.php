@@ -181,6 +181,7 @@ class RegisterTest extends TestCase
     {
         Livewire::test(Register::class)
             ->set('name', 'Luna')
+            ->set('username', 'luna')
             ->set('email', 'user@email.com')
             ->set('password', 'password')
             ->set('password_confirmation', 'password')
@@ -195,6 +196,7 @@ class RegisterTest extends TestCase
 
         Livewire::test(Register::class)
             ->set('name', 'Luna')
+            ->set('username', 'luna')
             ->set('email', 'user@email.com')
             ->set('password', 'password')
             ->set('password_confirmation', 'password')

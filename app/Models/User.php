@@ -6,15 +6,16 @@ use Laravel\Sanctum\HasApiTokens;
 use Vinkla\Hashids\Facades\Hashids;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Concerns\ManagesPeerships;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
     use HasApiTokens;
+    use ManagesPeerships;
     use TwoFactorAuthenticatable;
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -108,38 +109,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(Goal::class);
     }
-
-    // peerships that this user started
-    public function peersOfThisUser(): BelongsToMany
-    {
-        return $this->belongsToMany(User::class, 'peerships', 'first_user_id', 'second_user_id')
-            ->withPivot('status')
-            ->wherePivot('status', 'confirmed');
-    }
-
-    // peerships that this user accepted
-	protected function thisUserPeerOf()
-	{
-		return $this->belongsToMany(User::class, 'peerships', 'second_user_id', 'first_user_id')
-		->withPivot('status')
-		->wherePivot('status', 'confirmed');
-	}
-
-    // accessor allowing you call $user->peers
-    public function getPeersAttribute()
-	{
-		if (!array_key_exists('peers', $this->relations)) {
-            
-            if($peers = $this->peersOfThisUser) {
-                $peers->merge($this->thisUserPeerOf);
-            } else {
-                $peers = $this->thisUserPeerOf;
-            }
-
-            $this->setRelation('peers', $peers);            
-
-        }
-
-		return $this->getRelation('peers');
-	}
 }
