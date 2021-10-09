@@ -21,8 +21,5 @@
         "postcss": "^8.3.6",
         "tailwindcss": "^2.2.15"
     },
-    "dependencies": {
-        "@tiptap/core": "^2.0.0-beta.120",
-        "@tiptap/starter-kit": "^2.0.0-beta.119"
-    }
+    "dependencies": {}
 }

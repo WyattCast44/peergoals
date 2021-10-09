@@ -16,6 +16,7 @@
                 type="text" 
                 name="code"
                 autocomplete="false"
+                class="px-1.5 py-1"
                 wire:model.defer="code"
                 required />
 
@@ -25,7 +26,7 @@
 
         <div class="mb-2">
 
-            <x-buttons.ghost tag="button" type="submit" class="w-full">
+            <x-buttons.ghost tag="button" type="submit" class="w-full py-1.5">
                 Send Request
             </x-buttons.ghost>
 

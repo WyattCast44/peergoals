@@ -20,7 +20,7 @@
                 
                 <livewire:dashboard.panels.manage-goals-panel /> 
 
-                <livewire:dashboard.panels.manage-peer-requests-panel />                   
+                {{-- <livewire:dashboard.panels.manage-peer-requests-panel />                    --}}
                 
             </main>
 

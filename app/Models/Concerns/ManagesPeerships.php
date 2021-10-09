@@ -7,6 +7,9 @@ use App\Models\Peership;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
+/**
+ * @see https://www.devopinion.com/friendship-system-for-social-site-in-laravel/
+ */
 trait ManagesPeerships
 {
     // peerships that this user started

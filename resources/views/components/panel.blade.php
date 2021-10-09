@@ -10,7 +10,7 @@
         @svg($icon, 'w-4 h-4 mr-1') <p>{{ $title }}</p>
     </div>
 
-    <main class="{{ ($padding) ? 'px-4 py-3 md:px-8 md:py-4' : '' }}">
+    <main class="{{ ($padding) ? 'px-4 py-3 md:px-8 md:py-4' : '' }}" {{ $attributes }}>
         {{ $slot }}
     </main>
 
