@@ -14,11 +14,18 @@
     
             <x-inputs.textarea 
                 id="goal.body"
-                class="w-full"
+                class="w-full h-20 no-scrollbar"
+                x-data="{ resize: () => { $el.style.height = '50px'; $el.style.height = $el.scrollHeight + 'px' } }"
+                x-init="resize()"
+                x-on:input="resize()"
                 wire:model.defer="goal.body"
                 required />
 
-            {{ $selectedPeers }}
+            <div class="relative z-0 flex -space-x-1 overflow-hidden">
+                @foreach ($selectedPeers as $peer)
+                    <img class="relative z-[{{ $loop->index + 1 }}] inline-block w-6 h-6 rounded-full ring-2 ring-white" src="{{ $peer->avatar_url }}" alt="{{ $peer->name }}'s avatar" title="{{ $peer->name }}">
+                @endforeach
+            </div>
             
             <x-errors.inline-validation key="goal.body" />
 
@@ -45,7 +52,7 @@
                         <ul class="overflow-y-scroll divide-y max-h-32 no-scrollbar">
                             
                             @forelse ($availablePeers as $peer)
-                                <li class="flex items-center px-2 py-1.5 space-x-2 hover:bg-gray-100 cursor-pointer" wire:click="addPeerToGoal({{ $peer->id }})">
+                                <li class="flex items-center px-2 py-1.5 space-x-2 hover:bg-gray-100 cursor-pointer focus:bg-gray-100 focus-within:shadow-inner focus:outline-none" wire:keydown.enter="addPeerToGoal({{ $peer->id }})" wire:click="addPeerToGoal({{ $peer->id }})" tabindex="0">
                                     <img src="{{ $peer->avatar_url }}" alt="{{ $peer->name }}'s avatar" class="w-6 h-6 rounded-full">
                                     <span class="truncate">{{ $peer->name }}</span>
                                 </li>

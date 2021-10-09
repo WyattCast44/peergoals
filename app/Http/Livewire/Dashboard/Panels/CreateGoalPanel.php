@@ -3,9 +3,10 @@
 namespace App\Http\Livewire\Dashboard\Panels;
 
 use App\Models\Goal;
+use App\Models\User;
 use Livewire\Component;
 use Illuminate\Support\Str;
-use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Collection;
 
 class CreateGoalPanel extends Component
 {
@@ -25,7 +26,7 @@ class CreateGoalPanel extends Component
     {
         $this->goal = new Goal;
 
-        $this->selectedPeers = collect();
+        $this->selectedPeers = new Collection;
 
         $this->availablePeers = auth()->user()->peers;
     }
@@ -34,12 +35,12 @@ class CreateGoalPanel extends Component
     {
         if(!$this->availablePeers->contains($peerId)) {
             return;
-        } 
-
-        $this->selectedPeers->push($peerId);
+        }
+        
+        $this->selectedPeers = $this->selectedPeers->push(User::find($peerId));
 
         $this->availablePeers = $this->availablePeers->filter(function($peer) use ($peerId) {
-            return $peer->id != $peerId;
+            return !($peer->id === $peerId);
         });
     }
 
@@ -76,7 +77,7 @@ class CreateGoalPanel extends Component
         $this->emit('goalCreated');
 
         $this->goal = new Goal;
-        $this->selectedPeers = collect();
+        $this->selectedPeers = new Collection;
         $this->availablePeers = auth()->user()->peers;
     }
 

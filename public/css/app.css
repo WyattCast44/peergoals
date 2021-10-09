@@ -1304,9 +1304,6 @@ select {
 .z-0 {
 	z-index: 0;
 }
-.z-30 {
-	z-index: 30;
-}
 .z-20 {
 	z-index: 20;
 }
@@ -1412,6 +1409,9 @@ select {
 .h-1 {
 	height: 0.25rem;
 }
+.h-20 {
+	height: 5rem;
+}
 .h-12 {
 	height: 3rem;
 }
@@ -1495,6 +1495,9 @@ select {
 	-webkit-user-select: all;
 	   -moz-user-select: all;
 	        user-select: all;
+}
+.resize {
+	resize: both;
 }
 .list-inside {
 	list-style-position: inside;
@@ -1956,6 +1959,10 @@ select {
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(255, 255, 255, var(--tw-ring-opacity));
 }
+.ring-gray-200 {
+	--tw-ring-opacity: 1;
+	--tw-ring-color: rgba(229, 231, 235, var(--tw-ring-opacity));
+}
 .transition {
 	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
 	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -2056,6 +2063,10 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(55, 65, 81, var(--tw-text-opacity));
 }
+.focus-within\:shadow-inner:focus-within {
+	--tw-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
 .hover\:border-gray-300:hover {
 	--tw-border-opacity: 1;
 	border-color: rgba(209, 213, 219, var(--tw-border-opacity));
@@ -2114,6 +2125,10 @@ select {
 .focus\:bg-gray-50:focus {
 	--tw-bg-opacity: 1;
 	background-color: rgba(249, 250, 251, var(--tw-bg-opacity));
+}
+.focus\:bg-gray-100:focus {
+	--tw-bg-opacity: 1;
+	background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
 }
 .focus\:shadow-inner:focus {
 	--tw-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
