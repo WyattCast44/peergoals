@@ -64,7 +64,13 @@ php artisan test --parallel
 
 ## Application Demo
 
-Because this is a semi-social application, if you do not seed the database properly with "peers" you may not get the full "experience". There is a demo command `demo` that will wipe the database and then ask you for your basic profile details and then seed a bunch of goals for you and a bunch of peers to help keep you accountable.
+Because this is a semi-social application, if you do not seed the database with "peers" you will not get the full "experience". There is a demo command that will:
+    - wipe the database 
+    - ask you for your basic profile details to create your account
+    - seed a bunch of goals for you 
+    - seed a bunch of peers to help keep you accountable
+
+Once this command has ran you can then login and test everything out 👍
 
 ```bash
 php artisan demo
