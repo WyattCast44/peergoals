@@ -1,6 +1,8 @@
 # PeerGoals
 
-PeerGoals is a full stack web application I built for the first ever [LaraJam](https://larajam.dev/) Hackathon. It is built using the TALL 🦒 stack (a.k.a TailwindCSS, AlpineJS, Laravel, Livewire)
+PeerGoals is a full stack web application I built for the first ever [LaraJam](https://larajam.dev/) Hackathon. It is built using the TALL 🦒 stack (a.k.a TailwindCSS, AlpineJS, Laravel, Livewire). 
+
+The inspiration for this project came from listening to a couple of podcasts where the hosts ask someone to keep them accountable to some goal, this isn't a new idea by any means but this tool offer a nice UI to help create goals and ask your peers to help keep you accountable for specific goals.
 
 ## Installation
 
@@ -65,10 +67,11 @@ php artisan test --parallel
 ## Application Demo
 
 Because this is a semi-social application, if you do not seed the database with "peers" you will not get the full "experience". There is a demo command that will:
-    - wipe the database 
-    - ask you for your basic profile details to create your account
-    - seed a bunch of goals for you 
-    - seed a bunch of peers to help keep you accountable
+
+- wipe the database 
+- ask you for your basic profile details to create your account
+- seed a bunch of goals for you 
+- seed a bunch of peers to help keep you accountable
 
 Once this command has ran you can then login and test everything out 👍
 
