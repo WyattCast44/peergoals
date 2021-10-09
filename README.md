@@ -45,7 +45,13 @@ HASH_IDS_SALT="example-salt"
 #### Migrate database
 
 ```bash
-php artisan migrate:fresh
+php artisan migrate:fresh --seed
+```
+
+#### Create storage links
+
+```bash
+php artisan storage:link
 ```
     
 ## Running Tests
@@ -54,6 +60,14 @@ To run the test suite, run the following command
 
 ```bash
 php artisan test --parallel
+```
+
+## Application Demo
+
+Because this is a semi-social application, if you do not seed the database properly with "peers" you may not get the full "experience". There is a demo command `demo` that will wipe the database and then ask you for your basic profile details and then seed a bunch of goals for you and a bunch of peers to help keep you accountable.
+
+```bash
+php artisan demo
 ```
 
 ## Acknowledgements
