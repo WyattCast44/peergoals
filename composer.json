@@ -19,7 +19,8 @@
         "livewire/livewire": "^2.6",
         "spatie/laravel-queueable-action": "^2.12",
         "vinkla/hashids": "^9.1",
-        "watson/active": "^6.0"
+        "watson/active": "^6.0",
+        "wyattcast44/laravel-safe-username": "^3.0"
     },
     "require-dev": {
         "brianium/paratest": "^6.3",

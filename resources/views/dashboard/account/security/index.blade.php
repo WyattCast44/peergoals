@@ -3,12 +3,12 @@
 @section('page')
 
     <livewire:dashboard.panels.update-password-panel />
-
-    <x-spacer class="py-1" />
     
-    @include('dashboard.account.security.partials.email-passphrase-panel')
+    <x-spacer class="py-2" />
     
-    <x-spacer class="py-1" />
+    <livewire:dashboard.panels.email-passphrase-panel />
+    
+    <x-spacer class="py-2" />
     
     @include('dashboard.account.security.partials.two-factor-auth-panels')    
     

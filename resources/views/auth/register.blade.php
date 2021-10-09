@@ -4,7 +4,7 @@
         
         <x-errors.inline-validation key="auth" />
 
-        <form wire:submit.prevent="register">
+        <form wire:submit.prevent="register" class="space-y-4">
 
             <label for="name" class="flex flex-col space-y-2">
 
@@ -23,7 +23,24 @@
 
             </label>
 
-            <label for="email" class="flex flex-col mt-4 space-y-2">
+            <label for="username" class="flex flex-col space-y-2">
+
+                <span class="text-lg text-gray-600">Your Username</span>
+
+                <x-inputs.text 
+                    id="username"
+                    autofocus
+                    type="text" 
+                    name="username"
+                    autocomplete="username"
+                    wire:model.defer="username"
+                    required />
+
+                <x-errors.inline-validation key="username" />
+
+            </label>
+
+            <label for="email" class="flex flex-col space-y-2">
 
                 <span class="text-lg text-gray-600">Email Address</span>
 
@@ -40,7 +57,7 @@
             </label>
 
 
-            <label for="password" class="flex flex-col mt-4 space-y-2">
+            <label for="password" class="flex flex-col space-y-2">
 
                 <span class="text-lg text-gray-600">Password</span>
 
@@ -56,7 +73,7 @@
             </label>
 
 
-            <label for="password_confirmation" class="flex flex-col mt-4 space-y-2">
+            <label for="password_confirmation" class="flex flex-col space-y-2">
 
                 <span class="text-lg text-gray-600">Password Confirmation</span>
 
@@ -71,7 +88,7 @@
                     
             </label>
 
-            <div class="flex flex-col mt-8 mb-2">
+            <div class="flex flex-col mb-2">
 
                 <x-buttons.primary tag="button" type="submit" class="selection:bg-gray-100 selection:text-gray-700">
                     Register

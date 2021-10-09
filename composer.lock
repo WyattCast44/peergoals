@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "11dd0e9149f2e5cc3342394462d6a150",
+    "content-hash": "6af367d7d037ddb5499e90b1fc1cb296",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5973,6 +5973,68 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.10.0"
             },
             "time": "2021-03-09T10:59:23+00:00"
+        },
+        {
+            "name": "wyattcast44/laravel-safe-username",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WyattCast44/laravel-safe-username.git",
+                "reference": "e085f720787af7c7fc4c3c7e91bcd98a56a18b61"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WyattCast44/laravel-safe-username/zipball/e085f720787af7c7fc4c3c7e91bcd98a56a18b61",
+                "reference": "e085f720787af7c7fc4c3c7e91bcd98a56a18b61",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^7.0|^8.0",
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^5.0",
+                "phpunit/phpunit": "^8.0|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Wyattcast44\\SafeUsername\\SafeUsernameServiceProvider"
+                    ],
+                    "aliases": {
+                        "SafeUsername": "Wyattcast44\\SafeUsername\\SafeUsernameFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Wyattcast44\\SafeUsername\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Wyatt Castaneda",
+                    "email": "wyatt.castaneda@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel safe username validation/filter.",
+            "homepage": "https://github.com/wyattcast44/laravel-safe-username",
+            "keywords": [
+                "laravel",
+                "safe-username",
+                "wyattcast44"
+            ],
+            "support": {
+                "issues": "https://github.com/WyattCast44/laravel-safe-username/issues",
+                "source": "https://github.com/WyattCast44/laravel-safe-username/tree/3.0.0"
+            },
+            "time": "2021-07-29T06:58:28+00:00"
         }
     ],
     "packages-dev": [

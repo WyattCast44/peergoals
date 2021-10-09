@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Laravel\Sanctum\HasApiTokens;
 use Vinkla\Hashids\Facades\Hashids;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -54,6 +55,14 @@ class User extends Authenticatable
     }
 
     /**
+     * Accessors, mutators
+     */
+    public function getAvatarUrlAttribute()
+    {
+        return Storage::url($this->avatar);
+    }
+
+    /**
      * Abilities, affordances, checks
      */
     public function apiEnabled(): bool
@@ -80,20 +89,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(Goal::class);
     }
-
-    /**
-     * Configuration, Misc
-     */
-    /**
-     * Send a password reset notification to the user.
-     *
-     * @param  string  $token
-     * @return void
-     */
-    // public function sendPasswordResetNotification(string $token): void
-    // {
-    //     $url = 'https://example.com/reset-password?token='.$token;
-
-    //     $this->notify(new ResetPasswordNotification($url));
-    // }
 }

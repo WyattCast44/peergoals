@@ -4,16 +4,25 @@ namespace App\Http\Livewire\Dashboard\Panels;
 
 use App\Models\User;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use Illuminate\Validation\Rule;
+use Wyattcast44\SafeUsername\Rules\AllowedUsername;
 
 class UpdateProfilePanel extends Component
 {    
+    use WithFileUploads;
+
     public User $user;
+
+    public $new_avatar = null;
 
     protected function rules(): array
     {
         return [
             'user.name' => ['required', 'min:2', 'max:255'],
+            'user.username' => ['required', 'min:2', 'max:255', 
+                new AllowedUsername,
+                Rule::unique('users', 'username')->ignore(auth()->id())],
             'user.email' => ['required', 'email', Rule::unique('users', 'email')->ignore(auth()->id())],
         ];
     }
@@ -36,6 +45,26 @@ class UpdateProfilePanel extends Component
         }
 
         return;
+    }
+
+    public function updatedNewAvatar()
+    {
+        $this->validate([
+            'new_avatar' => ['nullable', 'image', 'max:5000'],
+        ]);
+
+        if ($this->new_avatar) {
+
+            $filename = $this->new_avatar->storePublicly('avatars', 'public');
+
+            $this->user->update([
+                'avatar' => $filename,
+            ]);
+
+            $this->dispatchBrowserEvent('user-avatar-updated', ['avatar' => $this->user->avatar_url]);
+
+            session()->flash('success', 'Avatar updated!');
+        }
     }
 
     public function render()

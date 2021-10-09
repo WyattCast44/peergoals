@@ -44,16 +44,16 @@
                     <x-icon-user class="w-5 h-5 ml-1 mr-2 text-current text-gray-600 group-hover:text-purple-600" /> Profile
                 </a>
 
+                <a href="#" class="flex items-center font-semibold rounded-sm hover:text-purple-600 group focus:outline-none focus:ring focus:ring-gray-300 focus:ring-offset-2 {{ active('dashboard.account.s', 'text-purple-700') }}">
+                    <x-icon-shield-check class="w-5 h-5 ml-1 mr-2 text-current text-gray-600 group-hover:text-purple-600" /> Privacy
+                </a>
+
                 <a href="{{ route('dashboard.account.security') }}" class="flex items-center font-semibold rounded-sm hover:text-purple-600 group focus:outline-none focus:ring focus:ring-gray-300 focus:ring-offset-2 {{ active('dashboard.account.security', 'text-purple-700') }}">
                     <x-icon-lock class="w-5 h-5 ml-1 mr-2 text-current text-gray-600 group-hover:text-purple-600" /> Security
                 </a>
 
                 <a href="{{ route('dashboard.account.api') }}" class="flex items-center font-semibold rounded-sm hover:text-purple-600 group focus:outline-none focus:ring focus:ring-gray-300 focus:ring-offset-2 {{ active('dashboard.account.api', 'text-purple-700') }}">
                     <x-icon-cloud-lightning class="w-5 h-5 ml-1 mr-2 text-current text-gray-600 group-hover:text-purple-600" /> API
-                </a>
-
-                <a href="{{ route('dashboard.account.clients') }}" class="flex items-center font-semibold rounded-sm hover:text-purple-600 group focus:outline-none focus:ring focus:ring-gray-300 focus:ring-offset-2 {{ active('dashboard.account.clients', 'text-purple-700') }}">
-                    <x-icon-users class="w-5 h-5 ml-1 mr-2 text-current text-gray-600 group-hover:text-purple-600" /> Clients
                 </a>
 
             </nav>

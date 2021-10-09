@@ -23,7 +23,8 @@
                 <!-- profile dropdown -->
                 <div x-data="{ open: false }" class="relative flex items-center justify-center">
 
-                    <button class="inline-block w-8 h-8 bg-gray-200 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 focus:shadow-inner disabled:opacity-50 disabled:bg-gray-500 disabled:cursor-wait" x-on:click="open=!open">
+                    <button class="inline-block w-8 h-8 overflow-hidden bg-gray-200 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 focus:shadow-inner disabled:opacity-50 disabled:bg-gray-500 disabled:cursor-wait" x-on:click="open=!open">
+                        <img src="{{ auth()->user()->avatar_url }}" class="object-cover w-full h-full rounded-full" x-data x-on:user-avatar-updated.window="$el.src = event.detail.avatar;">
                         <span class="sr-only">Profile menu</span>
                     </button>
 
@@ -39,13 +40,6 @@
                             <p class="text-base font-semibold text-gray-700 truncate" x-data 
                                 x-on:user-name-updated.window="$el.innerHTML = $event.detail.name" title="{{ auth()->user()->name }}">
                                 {{ auth()->user()->name }}
-                            </p>
-                        </div>
-
-                        <div class="py-1.5 border-b border-gray-300 px-3 select-none mb-1">
-                            <p class="text-xs text-gray-500">Your peer goal code</p>
-                            <p class="text-base font-semibold text-gray-700 truncate select-all">
-                                {{ auth()->user()->peer_code }}
                             </p>
                         </div>
 
