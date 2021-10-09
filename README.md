@@ -56,7 +56,7 @@ php artisan storage:link
     
 ## Running Tests
 
-To run the test suite, run the following command
+To run the test suite, run the following command (keep in mind this application was built in two and a half days so it is not fully tested)
 
 ```bash
 php artisan test --parallel
