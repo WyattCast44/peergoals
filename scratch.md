@@ -1,26 +1,21 @@
 # Scratchpad
 
-- when i create a goal, 
-    - i should add the goal
-    - i can add a "due" date
-    - i can tag "peers" to request they keep me accountable
-    - i can say whether or not the goal is "public"
+# Todo
 
+- Add due date select to goals
+- Add notifications for
+    - peer request recieved
+    - peer request accepted
+    - a peers goal was archived
+    - a goal coming due soon
 - Finish email passphrase feature
 - Finish two factor auth code - need to add backup code functionality
-
-- can reset peer code to allow you to invalidate spam requests
-- existing peers will stay
-- peer requests = friend requests
-- will need username to allow your public page
-- will need to keep username safe
-- will allow banner image and profile image
-- will list goals
 - use sidecar to generate images
     - "Wyatt Castaneda is looking for peers to keep him/her accountable"
-- will need to add gender field
-
-Peership system
-- need to check if a request is already sent
-- need to check if reciever has blocked user
-- need to check if reciever and user are already peers
+- A add gender field for the sidecar social images
+- Add pagination to the peers list panel
+- add pagination to the goal management panel
+- build out the notifications page
+- Add `public` toggle to the privacy panel
+- Add ability to remove approved peers
+- Add ability to block peers that request you

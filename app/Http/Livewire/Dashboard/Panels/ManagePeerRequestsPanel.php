@@ -20,6 +20,8 @@ class ManagePeerRequestsPanel extends Component
     {
         Peership::find($peershipId)->acceptRequest();
 
+        $this->emit('peerAdded');
+
         $this->queryRequests();
     }
 
