@@ -1,6 +1,6 @@
 <x-panel title="Update Profile" icon="user">
         
-    <form wire:submit.prevent="update" id="update-profile-form">
+    <form wire:submit.prevent="update">
 
         @if (session()->has('success'))
             <x-alerts.success message="{{ session('success') }}" />  
@@ -121,7 +121,7 @@
         <x-spacer class="py-2" />
 
         <div class="flex items-center justify-end">
-            <x-buttons.ghost form="update-profile-form">
+            <x-buttons.ghost type="submit">
                 Update Profile
             </x-buttons.ghost>
         </div>

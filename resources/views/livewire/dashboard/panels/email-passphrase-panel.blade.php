@@ -4,18 +4,14 @@
         <x-alerts.success message="{{ session('success') }}" />
     @endif
 
-    <p>
-        In today's world where phishing emails are common we recommend setting a passphrase that we will include in our emails to you so that you know for sure that when we email you it is 100% legimate.
-    </p>
-    
     <form wire:submit.prevent="save" class="space-y-3">
             
         @csrf
 
-        <label for="email_passphrase" class="sr-only">
-            Passphrase
+        <label for="email_passphrase">
+            In today's world where phishing emails are common we recommend setting a passphrase that we will include in our emails to you so that you know for sure that when we email you it is 100% legimate.
         </label>
-
+        
         <x-inputs.text 
             type="text"
             id="email_passphrase"

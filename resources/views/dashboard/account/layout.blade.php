@@ -22,6 +22,11 @@
                         active="dashboard.account.index" 
                         label="Profile" 
                         value="{{ route('dashboard.account.index') }}" />
+                    
+                    <x-nav.select-option 
+                        active="dashboard.account.privacy" 
+                        label="Privacy" 
+                        value="{{ route('dashboard.account.privacy') }}" />
 
                     <x-nav.select-option 
                         active="dashboard.account.security" 
@@ -44,7 +49,7 @@
                     <x-icon-user class="w-5 h-5 ml-1 mr-2 text-current text-gray-600 group-hover:text-purple-600" /> Profile
                 </a>
 
-                <a href="#" class="flex items-center font-semibold rounded-sm hover:text-purple-600 group focus:outline-none focus:ring focus:ring-gray-300 focus:ring-offset-2 {{ active('dashboard.account.s', 'text-purple-700') }}">
+                <a href="{{ route('dashboard.account.privacy') }}" class="flex items-center font-semibold rounded-sm hover:text-purple-600 group focus:outline-none focus:ring focus:ring-gray-300 focus:ring-offset-2 {{ active('dashboard.account.privacy', 'text-purple-700') }}">
                     <x-icon-shield-check class="w-5 h-5 ml-1 mr-2 text-current text-gray-600 group-hover:text-purple-600" /> Privacy
                 </a>
 

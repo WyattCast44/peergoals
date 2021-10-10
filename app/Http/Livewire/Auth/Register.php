@@ -7,7 +7,6 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
-use Illuminate\Validation\Rules\Password;
 use Wyattcast44\SafeUsername\Rules\AllowedUsername;
 
 class Register extends Component
@@ -26,9 +25,11 @@ class Register extends Component
     {
         $this->validate([
             'name' => ['required', 'string', 'min:3', 'max:255'],
-            'username' => ['required', 'string', 'alpha_num', 'min:2', 'max:255', 'unique:users,username', new AllowedUsername],
+            'username' => [
+                'required', 'string', 'alpha_num', 'min:2', 'max:255', 'unique:users,username', new AllowedUsername
+            ],
             'email' => ['required', 'email', 'string', 'max:255', 'unique:users,email'],
-            'password' => ['required', 'confirmed', 'min:8', Password::min(8)],
+            'password' => ['required', 'confirmed', 'min:8'],
         ]);
 
         $user = User::create([

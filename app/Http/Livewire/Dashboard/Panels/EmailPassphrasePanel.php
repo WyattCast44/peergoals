@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Dashboard\Panels;
 
 use Livewire\Component;
+use Illuminate\Support\Str;
 
 class EmailPassphrasePanel extends Component
 {
@@ -38,7 +39,7 @@ class EmailPassphrasePanel extends Component
 
     public function updatedEmailPassphrase($value)
     {
-        $this->email_passphrase = trim($value);
+        $this->email_passphrase = Str::slug(trim($value));
     }
 
     public function render()
