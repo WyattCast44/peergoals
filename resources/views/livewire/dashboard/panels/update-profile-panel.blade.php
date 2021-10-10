@@ -6,7 +6,7 @@
             <x-alerts.success message="{{ session('success') }}" />  
         @endif
 
-        <div class="grid grid-cols-1 gap-2 md:grid-rows-2 md:gap-3 md:grid-cols-4">
+        <div class="grid grid-cols-1 gap-2 md:gap-3 md:grid-cols-4">
 
             <label for="new_avatar" class="flex items-center">
                 <span class="text-gray-600 flex-nowrap">Avatar</span>
@@ -57,26 +57,6 @@
 
             </div> 
 
-            <label for="username" class="flex items-center">
-                <span class="text-gray-600 flex-nowrap">Username</span>
-            </label>
-    
-            <div class="col-span-3 space-y-1">
-
-                <x-inputs.text
-                    id="username"
-                    type="text" 
-                    name="username"
-                    class="w-full"
-                    spellcheck="false"
-                    autocomplete="username"
-                    wire:model.defer="user.username"
-                    required />
-    
-                <x-errors.inline-validation key="user.username" />
-
-            </div> 
-
             <label for="name" class="flex items-center">
                 <span class="text-gray-600 flex-nowrap">Name</span>
             </label>
@@ -96,6 +76,26 @@
                 <x-errors.inline-validation key="user.name" />
 
             </div>    
+
+            <label for="username" class="flex items-center">
+                <span class="text-gray-600 flex-nowrap">Username</span>
+            </label>
+    
+            <div class="col-span-3 space-y-1">
+
+                <x-inputs.text
+                    id="username"
+                    type="text" 
+                    name="username"
+                    class="w-full"
+                    spellcheck="false"
+                    autocomplete="username"
+                    wire:model.defer="user.username"
+                    required />
+    
+                <x-errors.inline-validation key="user.username" />
+
+            </div> 
 
             <label for="email" class="flex items-center">
                 <span class="text-gray-600 flex-nowrap">Email Address</span>

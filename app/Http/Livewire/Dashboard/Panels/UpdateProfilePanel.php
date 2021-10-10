@@ -19,7 +19,7 @@ class UpdateProfilePanel extends Component
     protected function rules(): array
     {
         return [
-            'user.name' => ['required', 'min:2', 'max:255'],
+            'user.name' => ['required', 'min:3', 'max:255'],
             'user.username' => ['required', 'alpha_num', 'min:2', 'max:255', 
                 new AllowedUsername,
                 Rule::unique('users', 'username')->ignore(auth()->id())],

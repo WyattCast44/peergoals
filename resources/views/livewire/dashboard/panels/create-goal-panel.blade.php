@@ -14,8 +14,8 @@
     
             <x-inputs.textarea 
                 id="goal.body"
-                class="w-full h-20 no-scrollbar"
-                x-data="{ resize: () => { $el.style.height = '50px'; $el.style.height = $el.scrollHeight + 'px' } }"
+                class="w-full no-scrollbar p-1.5"
+                x-data="{ resize: () => { $el.style.height = '16px'; $el.style.height = $el.scrollHeight + 'px' } }"
                 x-init="resize()"
                 x-on:input="resize()"
                 wire:model.defer="goal.body"
@@ -26,8 +26,6 @@
                     <img class="relative z-[{{ $loop->index + 1 }}] inline-block w-6 h-6 rounded-full ring-2 ring-white" src="{{ $peer->avatar_url }}" alt="{{ $peer->name }}'s avatar" title="{{ $peer->name }}">
                 @endforeach
             </div>
-            
-            <x-errors.inline-validation key="goal.body" />
 
             <div class="flex items-center justify-end space-x-2">
                 
@@ -68,9 +66,9 @@
 
                 </div>
 
-                <button type="button" class="items-center justify-center hidden w-8 h-8 rounded-full md:flex focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 focus:shadow-inner disabled:opacity-50 disabled:bg-gray-500 disabled:cursor-wait" title="Pick a due date">
+                {{-- <button type="button" class="items-center justify-center hidden w-8 h-8 rounded-full md:flex focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 focus:shadow-inner disabled:opacity-50 disabled:bg-gray-500 disabled:cursor-wait" title="Pick a due date">
                     <x-icon-calendar class="w-5 h-5 text-gray-500" /> <span class="sr-only">Pick a due date</span>
-                </button>
+                </button> --}}
 
                 <x-buttons.ghost type="submit">
                     Create Goal
