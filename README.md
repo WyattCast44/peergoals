@@ -89,10 +89,6 @@ Once this command has ran you can then login and test everything out 👍
 php artisan demo
 ```
 
-## Acknowledgements
-
-- Icons provided by Feather Icons and Heroicons
-
 ## License
 
 See [license.md](/license.md)
