@@ -20,6 +20,7 @@ class CreateGoalsTable extends Migration
             $table->text('body')->nullable();
             $table->dateTimeTz('due_at')->nullable();
             $table->boolean('public')->default(false);
+            $table->boolean('complete')->default(false);
             $table->timestamps();
         });
     }

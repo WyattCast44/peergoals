@@ -1,5 +1,7 @@
 # PeerGoals
 
+![Preview of the homescree](/hero.png)
+
 PeerGoals is a full stack web application I built for the first ever [LaraJam](https://larajam.dev/) Hackathon. It is built using the TALL 🦒 stack (a.k.a TailwindCSS, AlpineJS, Laravel, Livewire). 
 
 The inspiration for this project came from listening to a couple of podcasts where the hosts ask someone to keep them accountable to some goal, this isn't a new idea by any means but this tool offer a nice UI to help create goals and ask your peers to help keep you accountable for specific goals.

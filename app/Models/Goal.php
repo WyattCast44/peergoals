@@ -20,12 +20,18 @@ class Goal extends Model
      */
     protected $casts = [
         'public' => 'boolean',
+        'complete' => 'boolean',
         'due_at' => 'datetime',
     ];
 
     /**
      * Scopes
      */
+    public function scopeOpen(Builder $query): Builder
+    {
+        return $query->where('complete', false);
+    }
+    
     public function scopePrivate(Builder $query): Builder
     {
         return $query->where('public', false);

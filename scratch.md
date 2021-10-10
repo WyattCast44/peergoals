@@ -19,3 +19,4 @@
 - Add `public` toggle to the privacy panel
 - Add ability to remove approved peers
 - Add ability to block peers that request you
+- Add ability to see completed goals

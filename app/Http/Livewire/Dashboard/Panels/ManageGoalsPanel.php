@@ -27,9 +27,21 @@ class ManageGoalsPanel extends Component
         }
     }
 
+    public function markComplete($goalId)
+    {
+        $goal = auth()->user()->goals()->find($goalId);
+
+        if($goal) {
+            $goal->update([
+                'complete' => true,
+            ]);
+
+            $this->queryGoals();
+        }
+    }
     public function queryGoals()
     {
-        $this->goals = auth()->user()->goals()->latest()->get();
+        $this->goals = auth()->user()->goals()->open()->latest()->get();
     }
 
     public function render()

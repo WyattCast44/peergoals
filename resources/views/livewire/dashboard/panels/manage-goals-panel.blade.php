@@ -4,7 +4,7 @@
 
         @forelse ($goals as $goal)
             
-            <li class="flex items-center justify-between py-2.5 space-x-4">
+            <li class="flex items-center justify-between py-2.5 space-x-4 transition duration-100 ease-out" x-data>
                 
                 <div class="space-y-2 text-gray-600">
                     <div>
@@ -17,10 +17,16 @@
                       </div>
                 </div>
                 
-                <div>
-                    <x-buttons.ghost wire:click="deleteGoal({{ $goal->id }})">
+                <div class="flex items-center space-x-2">
+
+                    <x-buttons.ghost x-on:click="window.fireCannon($event);$wire.markComplete({{ $goal->id }})" class="px-3 py-2 text-sm whitespace-nowrap">
+                        Mark Complete
+                    </x-buttons.ghost>
+
+                    <x-buttons.ghost wire:click="deleteGoal({{ $goal->id }})" class="px-3 py-2 text-sm">
                         Delete
                     </x-buttons.ghost>
+                    
                 </div>              
                 
             </li>
@@ -34,3 +40,24 @@
     </ul>
 
 </x-panel>   
+
+@push('scripts')
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+            window.fireCannon = function(event) {
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { 
+                        x: 0.5,
+                        y: 0.85
+                    }
+                });
+            }
+            
+        })
+    </script>
+    
+@endpush

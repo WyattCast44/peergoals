@@ -43,6 +43,9 @@
                 <button type="submit" class="sr-only">Logout</button>
             </form>
         @endpush
+        @push('scripts')
+            <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+        @endpush
     @endonce
 
 @endsection
