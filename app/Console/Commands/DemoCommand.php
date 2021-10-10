@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\Goal;
+use App\Models\Peership;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Console\Command;
@@ -50,8 +51,14 @@ class DemoCommand extends Command
             ->times(10)
             ->create()
             ->each(function($peer) use ($user) {
-                $user->sendPeerRequestTo($user);
+                $user->sendPeerRequestTo($peer);
             });
+        
+        $peers->each(function($peer) use ($user) {
+            $peer->peer_requests->each(function(Peership $request) use ($user) {
+                $request->acceptRequest($user);
+            });
+        });
 
         $goals = Goal::factory()
             ->times(10)

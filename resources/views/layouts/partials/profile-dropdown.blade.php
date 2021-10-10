@@ -24,6 +24,13 @@
                     x-on:user-name-updated.window="$el.innerHTML = $event.detail.name" title="{{ auth()->user()->name }}">
                     {{ auth()->user()->name }}
                 </p>
+            </div
+            >
+            <div class="py-1.5 border-b border-gray-300 px-3 select-none mb-1">
+                <p class="text-xs text-gray-500">Your peer code</p>
+                <p class="text-base font-semibold text-gray-700 truncate select-all">
+                    {{ auth()->user()->peer_code }}
+                </p>
             </div>
 
             <a href="{{ route('dashboard.account.index') }}" 

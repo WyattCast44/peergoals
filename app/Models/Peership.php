@@ -30,4 +30,15 @@ class Peership extends Model
     {
         return $this->belongsTo(User::class, 'second_user_id');
     }
+
+    /**
+     * Abilities
+     */
+    public function acceptRequest(User $user = null)
+    {
+        $this->update([
+            'requesting_user_id' => ($user) ? $user->id : auth()->id(),
+            'status' => 'accepted',
+        ]);
+    }
 }

@@ -74,7 +74,7 @@ class User extends Authenticatable
             return Storage::url($this->avatar);
         }
 
-        return 'https://www.gravatar.com/avatar/' . md5($this->email) . '?s=100&d=mp';
+        return 'https://www.gravatar.com/avatar/' . md5($this->email) . '?s=100&d=retro';
     }
 
     /**

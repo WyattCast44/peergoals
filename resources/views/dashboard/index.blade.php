@@ -18,15 +18,15 @@
 
                 <livewire:dashboard.panels.create-goal-panel />  
                 
-                <livewire:dashboard.panels.manage-goals-panel /> 
-
-                <livewire:dashboard.panels.manage-peer-requests-panel />
+                <livewire:dashboard.panels.manage-goals-panel />
                 
             </main>
 
             <aside class="space-y-2 w-60">
 
                 <livewire:dashboard.panels.send-peer-request-panel />
+
+                <livewire:dashboard.panels.manage-peer-requests-panel />
 
                 <x-panel title="My Peers" :padding="false" icon="users">
                     
@@ -40,10 +40,7 @@
                     </ul>
 
                 </x-panel>
-
-                <p class="select-all">
-                    {{ auth()->user()->peer_code }}
-                </p>
+                
             </aside>
 
         </div>

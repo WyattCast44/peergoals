@@ -21,7 +21,7 @@ trait ManagesPeerships
     }
 
     // peerships that this user accepted
-	protected function thisUserPeerOf(): BelongsToMany
+    protected function thisUserPeerOf(): BelongsToMany
 	{
 		return $this->belongsToMany(User::class, 'peerships', 'second_user_id', 'first_user_id')
             ->withPivot('status')
@@ -36,7 +36,7 @@ trait ManagesPeerships
             $peers = $this->peersOfThisUser;
 
             if(!$peers->isEmpty()) {
-                $peers->merge($this->thisUserPeerOf);
+                $peers = $peers->merge($this->thisUserPeerOf);
             } else {
                 $peers = $this->thisUserPeerOf;
             }
@@ -73,7 +73,7 @@ trait ManagesPeerships
             $peers = $this->peersOfThisUserBlocked;
 
             if(!$peers->isEmpty()) {
-                $peers->merge($this->thisUserPeerOfBlocked);
+                $peers = $peers->merge($this->thisUserPeerOfBlocked);
             } else {
                 $peers = $this->thisUserPeerOfBlocked;
             }
@@ -115,7 +115,11 @@ trait ManagesPeerships
         if(Peership::where([
             'first_user_id' => $this->id,
             'second_user_id' => $user->id,
-        ])->orWhere([
+        ])->exists()) {
+            return;
+        }
+
+        if(Peership::Where([
             'first_user_id' => $user->id,
             'second_user_id' => $this->id,
         ])->exists()) {
@@ -128,14 +132,6 @@ trait ManagesPeerships
             'second_user_id' => $user->id,
             'requesting_user_id' => $this->id,
             'status' => 'pending',
-        ]);
-    }
-
-    public function acceptRequest(Peership $peership)
-    {
-        $peership->update([
-            'requesting_user_id' => auth()->id(),
-            'status' => 'accepted',
         ]);
     }
 }

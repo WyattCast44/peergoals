@@ -2,14 +2,18 @@
    
     <ul class="p-3 divide-y">
 
-        @foreach ($requests as $request)
+        @forelse ($requests as $request)
 
             <li class="flex items-center justify-between p-2">
                 <p>{{ $request->sender->name }}</p>
                 <button wire:click="approve({{ $request->id }})">Approve</button>
             </li>
 
-        @endforeach
+        @empty
+
+            <li class="text-sm text-center text-gray-500 select-none">No open requests</li>
+
+        @endforelse
 
     </ul>
    
