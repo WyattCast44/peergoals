@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->boolean('public')->default(true);
             $table->text('avatar')->nullable();
+            $table->text('banner')->nullable();
             $table->text('email_passphrase')->nullable();
             $table->string('peer_code')->unique()->nullable();
             $table->dateTime('api_disclaimer_accepted_at')->nullable();

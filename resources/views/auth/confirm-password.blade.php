@@ -1,4 +1,4 @@
-<div class="w-full max-w-lg py-4 mx-6 md:mx-auto">
+<div class="max-w-lg py-2 md:py-4 md:mx-auto">
 
     <x-panel title="Confirm your password to continue" icon="lock">
            

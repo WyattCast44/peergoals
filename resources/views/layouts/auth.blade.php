@@ -20,5 +20,5 @@
     <x-spacer class="py-3" />
 
     @yield('content')
-
+    
 @endsection

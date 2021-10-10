@@ -14,8 +14,8 @@
     
             <x-inputs.textarea 
                 id="goal.body"
-                class="w-full no-scrollbar p-1.5"
-                x-data="{ resize: () => { $el.style.height = '16px'; $el.style.height = $el.scrollHeight + 'px' } }"
+                class="w-full no-scrollbar"
+                x-data="{ resize: () => { $el.style.height = '32px'; $el.style.height = $el.scrollHeight + 'px' } }"
                 x-init="resize()"
                 x-on:input="resize()"
                 wire:model.defer="goal.body"

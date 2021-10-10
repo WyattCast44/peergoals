@@ -1,4 +1,4 @@
-<div class="w-full max-w-lg py-4 mx-6 md:mx-auto">
+<div class="max-w-lg py-2 md:py-4 md:mx-auto">
 
     <x-panel title="Register for a new account" icon="user-plus">
         
@@ -100,7 +100,7 @@
 
     </x-panel>
 
-    <div class="mt-4 space-y-2 md:space-y-1">
+    <div class="mx-2 mt-4 space-y-2 md:space-y-1">
     
         <p class="text-center">By registering you accept the <a href="{{ route('terms') }}" class="text-purple-600 hover:text-purple-700 hover:underline">Terms</a> and the <a href="{{ route('privacy') }}" class="text-purple-600 hover:text-purple-700 hover:underline">Privacy Policy</a></p>
         

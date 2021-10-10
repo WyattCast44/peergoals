@@ -4,17 +4,13 @@
 
     <section>
 
-        <h2 class="w-full max-w-lg mx-6 text-3xl font-bold leading-none text-gray-700 md:mx-auto">
-            Terms of Use
+        <h2 class="w-full max-w-lg mx-6 text-3xl font-bold leading-none text-center text-gray-700 md:mx-auto">
+            Terms of User
         </h2>
 
         <x-spacer class="py-1" />
 
         <div class="w-full max-w-lg py-4 mx-6 prose prose-lg md:mx-auto prose-purple">
-
-            <p class="lead">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure id magni quae, pariatur sint expedita?
-            </p>
 
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas numquam possimus, expedita minima doloribus asperiores dignissimos eligendi nulla architecto accusamus optio, sit minus repudiandae perspiciatis aliquid, suscipit placeat officiis eaque.</p>
 

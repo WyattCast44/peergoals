@@ -31,6 +31,7 @@ class UserFactory extends Factory
             'password' => Hash::make('password'),
             'public' => (bool) rand(0, 1),
             'avatar' => null,
+            'banner' => null,
             'email_passphrase' => null,
             'peer_code' => null,
             'api_disclaimer_accepted_at' => null,

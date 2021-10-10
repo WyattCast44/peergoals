@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
 
 // General
 Route::view('/', 'welcome')->name('welcome');
@@ -12,7 +11,7 @@ Route::view('/privacy', 'pages.privacy')->name('privacy');
 Route::middleware(['auth'])->group(function () {
 
     // General
-    Route::get('/dashboard', DashboardController::class)->name('dashboard');
+    Route::view('/dashboard', 'dashboard.index')->name('dashboard');
     Route::view('/dashboard/notifications', 'dashboard.notifications.index')->name('dashboard.notifications.index');
     
     // Account

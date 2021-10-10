@@ -14,7 +14,7 @@
             x-cloak
             x-show.transition="open" 
             x-on:click.outside="open=false"
-            x-on:keydown.escape="open=false"
+            x-on:keydown.escape.window="open=false"
             class="absolute right-0 z-50 w-48 py-1 bg-white border border-gray-300 rounded shadow top-10">
 
             <!-- signed in as -->

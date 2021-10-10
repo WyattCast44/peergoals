@@ -1,4 +1,4 @@
-<div class="w-full max-w-lg py-4 mx-6 md:mx-auto">
+<div class="max-w-lg py-2 mb-4 md:py-4 md:mx-auto">
 
     <x-panel title="Login to your account" icon="user">
         
@@ -6,9 +6,9 @@
             <x-alerts.error message="{{ $message }}" />
         @enderror
 
-        <form wire:submit.prevent="authenticate">
+        <form wire:submit.prevent="authenticate" class="space-y-4">
 
-            <label for="email" class="flex flex-col mb-4 space-y-2">
+            <label for="email" class="flex flex-col space-y-2">
     
                 <span class="text-lg text-gray-600">Email Address</span>
                 
@@ -40,7 +40,7 @@
                     
             </label>
     
-            <div class="flex flex-col mt-8 mb-2">
+            <div class="flex flex-col">
     
                 <x-buttons.primary tag="button" type="submit">
                     Log in
@@ -52,7 +52,7 @@
 
     </x-panel>
 
-    <div class="mt-4 space-y-2 md:space-y-1">
+    <div class="mx-2 mt-4 space-y-2 md:space-y-1">
     
         <p class="text-center">Forgot your password? <a href="{{ route('password.email') }}" class="text-purple-600 hover:text-purple-700 hover:underline">Reset password</a></p>
         

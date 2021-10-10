@@ -32,7 +32,13 @@ Optionally build fresh assets
 yarn prod
 ```
 
-#### Update `.env`
+#### Generate application key
+
+```bash
+php artisan key:generate
+```
+
+#### Copy `.env.example` to `.env` and update
 
 ```text
 DB_DATABASE=peergoals
