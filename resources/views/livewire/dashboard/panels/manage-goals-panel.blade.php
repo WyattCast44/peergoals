@@ -4,7 +4,7 @@
 
         @forelse ($goals as $goal)
             
-            <li class="flex items-center justify-between py-2.5 space-x-4 transition duration-100 ease-out" x-data>
+            <li class="flex flex-col md:flex-row items-center justify-between py-2.5 md:space-x-4 transition duration-100 ease-out" x-data>
                 
                 <div class="space-y-2 text-gray-600">
                     <div>
@@ -17,7 +17,7 @@
                       </div>
                 </div>
                 
-                <div class="flex items-center space-x-2">
+                <div class="flex items-center justify-end w-full space-x-2 md:justify-start">
 
                     <x-buttons.ghost x-on:click="window.fireCannon($event);$wire.markComplete({{ $goal->id }})" class="px-3 py-2 text-sm whitespace-nowrap">
                         Mark Complete
