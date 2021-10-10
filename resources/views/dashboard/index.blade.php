@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="py-3 bg-white border-b border-gray-300">
-        <div class="max-w-4xl mx-3 mx-auto">
+        <div class="max-w-4xl mx-3 md:mx-auto">
             <p class="text-xl">Dashboard</p>
         </div>
     </div>
